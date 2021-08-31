@@ -13,8 +13,8 @@ interface HeadingElement extends Element {
 }
 
 enum cardIcons {
-  "ASSIGN" = "https://open.yonsei.ac.kr/theme/image.php/coursemosv2/assign/1615804288/icon",
-  "VOD" = "https://open.yonsei.ac.kr/theme/image.php/coursemosv2/vod/1615804288/icon",
+  "ASSIGN" = "https://www.learnus.org/theme/image.php/coursemosv2/assign/1615804288/icon",
+  "VOD" = "https://www.learnus.org/theme/image.php/coursemosv2/vod/1615804288/icon",
 }
 
 export class CardParser {
@@ -33,9 +33,8 @@ export class CardParser {
   }
 
   getCardType = () => {
-    const iconElement: ImageElement = this.cardElement.getElementsByClassName(
-      "icon "
-    )[0];
+    const iconElement: ImageElement =
+      this.cardElement.getElementsByClassName("icon ")[0];
     if (!iconElement) return;
     switch (iconElement.src) {
       case cardIcons.ASSIGN:
@@ -47,9 +46,8 @@ export class CardParser {
   };
 
   getCardDates = () => {
-    const DateElements: HTMLCollectionOf<Element> = this.cardElement.getElementsByClassName(
-      "date-link"
-    );
+    const DateElements: HTMLCollectionOf<Element> =
+      this.cardElement.getElementsByClassName("date-link");
     Array.from(DateElements).map((el: Element) => {
       const anchor: AnchorElement = el.children[0];
       if (!anchor) return null;
@@ -63,9 +61,8 @@ export class CardParser {
 
   getCardTitle = () => {
     if (this.cardType === cardIcons.ASSIGN) return "과제";
-    const TitleElement: HeadingElement = this.cardElement.getElementsByTagName(
-      "h3"
-    )[0];
+    const TitleElement: HeadingElement =
+      this.cardElement.getElementsByTagName("h3")[0];
     this.cardTitle = TitleElement?.innerText ?? "";
   };
 }

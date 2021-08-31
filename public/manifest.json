@@ -1,14 +1,14 @@
 {
   "name": "Calenus",
   "description": "learnus calendar calenus",
-  "version": "1.0",
+  "version": "1.1",
   "manifest_version": 2,
   "browser_action": {
     "default_popup": "index.html",
     "default_title": "Calenus"
   },
   "permissions": [
-    "https://open.yonsei.ac.kr/"
+    "https://www.learnus.org/"
   ],
-  "content_security_policy": "default-src 'self' https://open.yonsei.ac.kr; script-src 'self'; style-src * 'unsafe-inline';"
+  "content_security_policy": "default-src 'self' https://www.learnus.org; script-src 'self'; style-src * 'unsafe-inline';"
 }
